@@ -2,12 +2,12 @@
    Root Variables & Base Setup
 =========================== */
 :root {
-  --primary: #48c6a3;
-  --secondary: #6dc7d3;
-  --accent: #88e0a5;
-  --bg: #f6fdfb;
-  --text: #1a1a1a;
-  --muted: #5a5a5a;
+  --primary: #273c75;         /* Deep Royal Blue */
+  --secondary: #4070f4;       /* Vibrant Medium Blue */
+  --accent: #7aa7ff;          /* Light Sky Blue */
+  --bg: #f6f8fc;              /* Soft Background Grayish White */
+  --text: #0d1b2a;            /* Deep Navy Text */
+  --muted: #5c6b7b;           /* Muted Gray-Blue Text */
   --radius: 18px;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
@@ -17,7 +17,7 @@
 =========================== */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Prevents content from hiding under fixed navbar */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, #fafffd 0%, #e8fff6 100%);
+  background: linear-gradient(180deg, #f8faff 0%, #e9f0ff 100%);
   background-attachment: fixed;
   overflow-x: hidden;
 }
@@ -43,8 +43,10 @@ h2 {
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary);
   margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ===========================
@@ -52,7 +54,7 @@ h2 {
 =========================== */
 .glass {
   backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
 }
@@ -73,9 +75,9 @@ h2 {
 }
 
 .logo {
-  color: var(--primary);
+  color: var(--secondary);
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .navbar nav a {
@@ -87,19 +89,20 @@ h2 {
 }
 
 .navbar nav a:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .navbar nav a.btn-contact {
-  background: var(--primary);
+  background: var(--secondary);
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
   transition: background 0.3s;
+  font-weight: 600;
 }
 
 .navbar nav a.btn-contact:hover {
-  background: var(--secondary);
+  background: var(--accent);
 }
 
 /* ===========================
@@ -120,7 +123,7 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* dark overlay for brightness control */
+  background: rgba(10, 25, 50, 0.6);
   z-index: 1;
 }
 
@@ -129,7 +132,7 @@ h2 {
   z-index: 2;
   max-width: 700px;
   padding: 2rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   animation: fadeIn 1.2s ease-in-out;
 }
 
@@ -142,11 +145,10 @@ h2 {
 }
 
 .hero p {
-  color: #eafbf5;
+  color: #dce9ff;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
-
 
 .hero-bg {
   position: absolute;
@@ -159,19 +161,16 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(70%);
+  filter: brightness(65%) saturate(110%);
 }
-
-
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-
 .cta {
-  background: var(--primary);
+  background: var(--secondary);
   border: none;
   color: #fff;
   padding: 0.9rem 1.8rem;
@@ -179,9 +178,11 @@ h2 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 .cta:hover {
-  background: var(--secondary);
+  background: var(--accent);
   transform: scale(1.05);
 }
 
@@ -189,7 +190,7 @@ h2 {
 .floating-shape {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.35;
   animation: float 8s ease-in-out infinite;
 }
 .shape1 { background: var(--accent); width: 180px; height: 180px; top: 25%; left: 10%; }
@@ -243,7 +244,7 @@ h2 {
   min-width: 100px;
 }
 .about-icons i {
-  color: var(--primary);
+  color: var(--secondary);
   font-size: 1.8rem;
   margin-bottom: 0.3rem;
 }
@@ -259,6 +260,7 @@ h2 {
   max-width: 1200px;
   margin-inline: auto;
 }
+
 .service-card {
   position: relative;
   overflow: hidden;
@@ -266,12 +268,17 @@ h2 {
   box-shadow: var(--shadow);
   color: #fff;
   text-align: center;
-  background: #000;
+  background: var(--primary);
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
 }
 .service-card img {
   width: 100%;
   height: 280px;
   object-fit: cover;
+  opacity: 0.6;
   transition: transform 0.4s ease;
 }
 .service-card:hover img {
@@ -280,7 +287,7 @@ h2 {
 .service-card .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
 }
 .service-card h3, .service-card p {
   position: absolute; left: 0; right: 0; z-index: 2;
@@ -293,14 +300,14 @@ h2 {
 .service-card p {
   bottom: 20px;
   font-size: 0.9rem;
-  color: #d4f5eb;
+  color: #dfeaff;
 }
 
 /* ===========================
    Testimonials
 =========================== */
 .testimonials h2 {
-  text-align: center;
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 .testimonial-wrapper {
@@ -371,7 +378,7 @@ h2 {
   border-radius: var(--radius);
 }
 .popup-content button {
-  background: var(--primary);
+  background: var(--secondary);
   color: #fff;
   border: none;
   padding: 0.8rem 1.2rem;
@@ -380,7 +387,7 @@ h2 {
   transition: background 0.3s;
 }
 .popup-content button:hover {
-  background: var(--secondary);
+  background: var(--accent);
 }
 .close {
   float: right;
@@ -392,12 +399,17 @@ h2 {
    Footer
 =========================== */
 .footer {
-  background: #fff;
+  background: var(--primary);
+  color: #fff;
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: var(--muted);
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+}
+.footer p {
+  margin: 0.4rem 0;
+}
+.footer i {
+  color: var(--accent);
 }
 
 /* ===========================
@@ -434,7 +446,7 @@ h2 {
   left: 0;
   width: 15px;
   height: 15px;
-  background: var(--primary);
+  background: var(--secondary);
   border-radius: 50%;
   pointer-events: none;
   mix-blend-mode: difference;
